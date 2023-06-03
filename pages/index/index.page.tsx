@@ -1,8 +1,6 @@
-import { Counter } from './Counter'
+import { Counter } from "./Counter";
 
-export { Page }
-
-function Page() {
+export const Page = () => {
   return (
     <>
       <h1>Welcome</h1>
@@ -14,5 +12,5 @@ function Page() {
         </li>
       </ul>
     </>
-  )
-}
+  );
+};

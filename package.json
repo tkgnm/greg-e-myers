@@ -12,5 +12,8 @@
     "preact-render-to-string": "^5.2.1",
     "vite": "^4.0.3",
     "vite-plugin-ssr": "0.4.131"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
   }
 }
