@@ -1,6 +1,8 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 const getBioFromDatabase = async () => {
 	const API_URL = 'https://gregemyers-api-fly.fly.dev/api/bio';
 	const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
