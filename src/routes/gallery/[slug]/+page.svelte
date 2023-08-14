@@ -8,4 +8,8 @@
 <p>{@html data.uuid}</p>
 <p>{@html data.caption}</p>
 <p>{@html data.title}</p>
+{#each data.artworkImages as artworkImage}
+	<img src={artworkImage} />
+{/each}
+
 <a href="/">Home</a>
