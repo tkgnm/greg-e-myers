@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import type { EntryGenerator } from './$types';
 
 interface ArtworkImage {
 	id: string;
@@ -19,6 +20,10 @@ interface ImageData {
 const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 
 export const prerender = true;
+
+export const entries: EntryGenerator = () => {
+	return [{ slug: '1' }, { slug: '2' }];
+};
 
 const getGalleryItemFromDatabase = async (params: string) => {
 	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${params}?populate=*`;
