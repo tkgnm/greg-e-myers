@@ -22,7 +22,15 @@ const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 export const prerender = true;
 
 export const entries: EntryGenerator = () => {
-	return [{ slug: '1' }, { slug: '2' }];
+	return [
+		{ slug: '1' },
+		{ slug: '2' },
+		{ slug: '4' },
+		{ slug: '5' },
+		{ slug: '6' },
+		{ slug: '7' },
+		{ slug: '8' }
+	];
 };
 
 const getGalleryItemFromDatabase = async (id: string) => {
