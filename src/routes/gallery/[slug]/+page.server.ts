@@ -22,11 +22,19 @@ const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 export const prerender = true;
 
 export const entries: EntryGenerator = () => {
-	return [{ slug: '1' }, { slug: '2' }];
+	return [
+		{ slug: '1' },
+		{ slug: '2' },
+		{ slug: '4' },
+		{ slug: '5' },
+		{ slug: '6' },
+		{ slug: '7' },
+		{ slug: '8' }
+	];
 };
 
-const getGalleryItemFromDatabase = async (params: string) => {
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${params}?populate=*`;
+const getGalleryItemFromDatabase = async (id: string) => {
+	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${id}?populate=*`;
 
 	const response = await fetch(API_URL, {
 		method: 'GET',
@@ -65,7 +73,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const data = await getGalleryItemFromDatabase(params.slug);
 
-		const { uuid, title, caption, coverImage, artworks } = data;
+		const { title, caption, coverImage, artworks } = data;
 
 		const artworkIds = artworks.data.map((artwork: ArtworkImage) => artwork.id);
 
@@ -76,7 +84,6 @@ export const load: PageServerLoad = async ({ params }) => {
 		console.log(artworkImages);
 
 		return {
-			uuid: uuid,
 			title: title,
 			caption: caption,
 			coverImage: coverImage,
