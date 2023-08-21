@@ -28,7 +28,7 @@ export const load: PageServerLoad = async () => {
 
 		return {
 			props: {
-				bio // This assumes your template expects a `bio` prop
+				bio
 			}
 		};
 	} catch (e) {
