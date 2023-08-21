@@ -25,8 +25,8 @@ export const entries: EntryGenerator = () => {
 	return [{ slug: '1' }, { slug: '2' }];
 };
 
-const getGalleryItemFromDatabase = async (params: string) => {
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${params}?populate=*`;
+const getGalleryItemFromDatabase = async (id: string) => {
+	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${id}?populate=*`;
 
 	const response = await fetch(API_URL, {
 		method: 'GET',
@@ -65,7 +65,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const data = await getGalleryItemFromDatabase(params.slug);
 
-		const { uuid, title, caption, coverImage, artworks } = data;
+		const { title, caption, coverImage, artworks } = data;
 
 		const artworkIds = artworks.data.map((artwork: ArtworkImage) => artwork.id);
 
