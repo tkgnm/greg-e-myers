@@ -84,7 +84,6 @@ export const load: PageServerLoad = async ({ params }) => {
 		console.log(artworkImages);
 
 		return {
-			uuid: uuid,
 			title: title,
 			caption: caption,
 			coverImage: coverImage,
