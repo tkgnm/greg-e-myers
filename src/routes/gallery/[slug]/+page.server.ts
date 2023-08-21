@@ -81,8 +81,6 @@ export const load: PageServerLoad = async ({ params }) => {
 			artworkIds.map((id: string) => getArtworkImageById(id))
 		);
 
-		console.log(artworkImages);
-
 		return {
 			title: title,
 			caption: caption,
