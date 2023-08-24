@@ -1,21 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { EntryGenerator } from './$types';
-
-interface ArtworkImage {
-	id: string;
-	attributes: ImageData;
-}
-
-interface ImageData {
-	title: string;
-	technicalDetail: string;
-	hideCaption: boolean;
-	createdAt: string;
-	updatedAt: string;
-	publishedAt: string;
-	date: string;
-}
+import type { ArtworkImage } from '../../../types';
 
 const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 

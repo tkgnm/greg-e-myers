@@ -4,6 +4,5 @@
 	export let data: PageData;
 </script>
 
-<h1>About this site</h1>
+<h1>Gallery</h1>
 <p>{@html data.props.bio}</p>
-<a href="/">Home</a>
