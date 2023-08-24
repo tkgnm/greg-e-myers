@@ -5,8 +5,6 @@ import type { ArtworkImage } from '../../../types';
 
 const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 
-export const prerender = true;
-
 export const entries: EntryGenerator = () => {
 	return [
 		{ slug: '1' },

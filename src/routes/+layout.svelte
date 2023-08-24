@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Gallery from '../components/Gallery.svelte';
 </script>
 
 <nav>
@@ -8,3 +9,4 @@
 	<a href="/contact">Contact</a>
 </nav>
 <slot />
+<Gallery />

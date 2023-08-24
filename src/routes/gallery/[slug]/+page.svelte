@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import Gallery from '../../../components/Gallery.svelte';
 	export let data: PageData;
 </script>
 
@@ -10,5 +9,3 @@
 {#each data.artworkImages as artworkImage}
 	<img src={artworkImage} />
 {/each}
-
-<Gallery />
