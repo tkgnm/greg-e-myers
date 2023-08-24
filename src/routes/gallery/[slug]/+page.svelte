@@ -1,9 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-
+	import Gallery from '../../../components/Gallery.svelte';
 	export let data: PageData;
-
-	import Gallery from '../components/Gallery.svelte';
 </script>
 
 <h1>About this site</h1>

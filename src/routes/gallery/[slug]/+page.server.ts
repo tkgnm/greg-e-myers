@@ -58,7 +58,6 @@ const getArtworkImageById = async (id: string) => {
 export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const data = await getGalleryItemFromDatabase(params.slug);
-
 		const { title, caption, coverImage, artworks } = data;
 
 		const artworkIds = artworks.data.map((artwork: ArtworkImage) => artwork.id);
