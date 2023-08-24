@@ -2,6 +2,8 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	import Gallery from '../components/Gallery.svelte';
 </script>
 
 <h1>About this site</h1>
@@ -11,4 +13,4 @@
 	<img src={artworkImage} />
 {/each}
 
-<a href="/">Home</a>
+<Gallery />

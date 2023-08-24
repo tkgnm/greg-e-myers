@@ -1,5 +1,4 @@
 import type { GalleryImage } from '../types';
-import { error } from '@sveltejs/kit';
 
 export async function fetchGalleryImages(): Promise<GalleryImage[]> {
 	const data = await getImageData();

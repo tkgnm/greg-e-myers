@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import Gallery from '../../components/Gallery.svelte';
 	let emailAddress = 'contact@gregemyers.com';
 	let copiedMessage = '';
 
@@ -28,6 +29,8 @@
 
 	Instagram:<a href="https://www.instagram.com/gregemyers" target="_blank">@gregemyers</a>
 </main>
+
+<Gallery />
 
 <style>
 	.email-container {
