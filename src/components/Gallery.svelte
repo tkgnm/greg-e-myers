@@ -8,7 +8,9 @@
 		galleryImages = await fetchGalleryImages();
 	}
 
-	loadGalleryImages();
+	export const load = () => {
+		loadGalleryImages();
+	};
 </script>
 
 <div>
