@@ -11,6 +11,8 @@
 	export const load = () => {
 		loadGalleryImages();
 	};
+
+	load();
 </script>
 
 <div>
