@@ -8,11 +8,11 @@
 		galleryImages = await fetchGalleryImages();
 	}
 
-	export const load = () => {
-		loadGalleryImages();
+	export const load = async ({ page }) => {
+		if (page.ssr) {
+			await loadGalleryImages();
+		}
 	};
-
-	load();
 </script>
 
 <div>
