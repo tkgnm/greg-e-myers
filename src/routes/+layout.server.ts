@@ -4,7 +4,7 @@ import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 export const config = {
 	isr: {
-		expiration: 60 * 10 // 10 minutes
+		expiration: 30
 	}
 };
 
