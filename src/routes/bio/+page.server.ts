@@ -20,3 +20,9 @@ export const load: PageServerLoad = async () => {
 		throw error(404, 'Not found');
 	}
 };
+
+export const config = {
+	isr: {
+		expiration: 30
+	}
+};
