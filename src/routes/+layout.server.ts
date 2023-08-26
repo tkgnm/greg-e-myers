@@ -1,6 +1,11 @@
 import type { LayoutServerLoad } from './$types';
 import type { GalleryImage } from '../types';
 
+export const config = {
+	isr: {
+		expiration: 60
+	}
+};
 export const load: LayoutServerLoad = async () => {
 	return {
 		items: await fetchGalleryImages()
