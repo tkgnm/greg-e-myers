@@ -14,8 +14,7 @@ const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 };
 
 const getGalleryThumbnailsFromDatabase = async () => {
-	const API_URL = API_ROUTES.galleryThumbnails;
-	const data = await fetchFromApi(API_URL);
+	const data = await fetchFromApi(API_ROUTES.galleryThumbnails);
 
 	return data.data.map((item: any) => {
 		const { id, attributes } = item;

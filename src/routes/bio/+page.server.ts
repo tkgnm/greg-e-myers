@@ -3,9 +3,7 @@ import type { PageServerLoad } from './$types';
 import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 const getBioFromDatabase = async () => {
-	const API_URL = API_ROUTES.bio;
-	const data = await fetchFromApi(API_URL);
-
+	const data = await fetchFromApi(API_ROUTES.bio);
 	return data.data.attributes.text;
 };
 

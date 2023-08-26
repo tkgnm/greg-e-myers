@@ -5,23 +5,14 @@ import type { ArtworkImage, GalleryItem } from '../../../types';
 import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 export const entries: EntryGenerator = async () => {
-	const API_URL = 'https://gregemyers-api-fly.fly.dev/api/gallery-items';
-	const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
+	try {
+		const data = await fetchFromApi(API_ROUTES.galleryItems);
 
-	const response = await fetch(API_URL, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${BEARER_TOKEN}`
-		}
-	});
-
-	if (!response.ok) {
+		const slugEntries = data.data.map((item: any) => ({ slug: `${item.id}` }));
+		return slugEntries;
+	} catch (error) {
 		throw new Error('Failed to fetch gallery item ID entries');
 	}
-	const data = await response.json();
-
-	const slugEntries = data.data.map((item: any) => ({ slug: `${item.id}` }));
-	return slugEntries;
 };
 
 const getGalleryItemFromDatabase = async (id: string): Promise<GalleryItem> => {
