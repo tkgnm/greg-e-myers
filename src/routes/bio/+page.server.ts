@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { fetchFromApi } from '$lib/server/api';
 
 const getBioFromDatabase = async () => {
-	const API_URL = 'https://gregemyers-api-fly.fly.dev/api/bio';
+	const API_URL = API_ROUTES.bio;
 	const data = await fetchFromApi(API_URL);
 
 	return data.data.attributes.text;

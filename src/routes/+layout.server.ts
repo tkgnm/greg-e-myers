@@ -1,6 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import type { CoverImage } from '../types';
-import { fetchFromApi } from '$lib/server/api';
+import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 export const config = {
 	isr: {
@@ -20,7 +20,7 @@ const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 };
 
 const getGalleryThumbnailsFromDatabase = async () => {
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items?populate=*`;
+	const API_URL = API_ROUTES.galleryThumbnails;
 	const data = await fetchFromApi(API_URL);
 
 	return data.data.map((item: any) => {

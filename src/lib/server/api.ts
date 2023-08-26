@@ -14,3 +14,12 @@ export const fetchFromApi = async (url: string) => {
 
 	return response.json();
 };
+
+const API_BASE_URL = 'https://gregemyers-api-fly.fly.dev/api';
+
+export const API_ROUTES = {
+	galleryItem: (id: string) => `${API_BASE_URL}/gallery-items/${id}?populate=*`,
+	artworkImage: (artworkID: number) => `${API_BASE_URL}/artworks/${artworkID}?populate=*`,
+	bio: `${API_BASE_URL}/bio`,
+	galleryThumbnails: `${API_BASE_URL}/gallery-items?populate=*`
+};

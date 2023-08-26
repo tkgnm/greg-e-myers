@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { EntryGenerator } from './$types';
 import type { ArtworkImage, GalleryItem } from '../../../types';
-import { fetchFromApi } from '$lib/server/api';
+import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 export const entries: EntryGenerator = async () => {
 	const API_URL = 'https://gregemyers-api-fly.fly.dev/api/gallery-items';
@@ -25,7 +25,7 @@ export const entries: EntryGenerator = async () => {
 };
 
 const getGalleryItemFromDatabase = async (id: string): Promise<GalleryItem> => {
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${id}?populate=*`;
+	const API_URL = API_ROUTES.galleryItem(id);
 	const data = await fetchFromApi(API_URL);
 
 	const { title, caption, description, date, artworks } = data.data.attributes;
@@ -35,7 +35,7 @@ const getGalleryItemFromDatabase = async (id: string): Promise<GalleryItem> => {
 };
 
 const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => {
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/artworks/${artworkID}?populate=*`;
+	const API_URL = API_ROUTES.artworkImage(artworkID);
 	const data = await fetchFromApi(API_URL);
 
 	const { attributes } = data.data;
