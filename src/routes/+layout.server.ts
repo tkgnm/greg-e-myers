@@ -6,6 +6,8 @@ export const config = {
 		expiration: 60 * 10 // 10 minutes
 	}
 };
+
+export const prerender = true;
 export const load: LayoutServerLoad = async () => {
 	return {
 		items: await fetchGalleryImages()
