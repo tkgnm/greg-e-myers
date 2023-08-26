@@ -1,8 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import type { GalleryImage } from '../types';
 
-export const prerender = true;
-
 export const load: LayoutServerLoad = async () => {
 	return {
 		items: await fetchGalleryImages()
