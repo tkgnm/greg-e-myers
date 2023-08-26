@@ -1,5 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import type { CoverImage } from '../types';
+import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
 export const config = {
 	isr: {
@@ -7,63 +8,50 @@ export const config = {
 	}
 };
 
-export const load: LayoutServerLoad = async () => {
-	return {
-		items: await fetchGalleryImages()
-	};
-};
-
-async function fetchGalleryImages(): Promise<CoverImage[]> {
+const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
-}
+};
 
-async function getImageData() {
+const getGalleryThumbnailsFromDatabase = async () => {
+	const API_URL = API_ROUTES.galleryThumbnails;
+	const data = await fetchFromApi(API_URL);
+
+	return data.data.map((item: any) => {
+		const { id, attributes } = item;
+		const { title, caption, date, coverImage } = attributes;
+		const { url, width, height } = coverImage.data.attributes.formats.small;
+
+		const image: CoverImage = {
+			id,
+			title,
+			caption,
+			alt: caption,
+			date,
+			url,
+			width,
+			height
+		};
+
+		return { image };
+	});
+};
+
+const getImageData = async () => {
 	try {
 		const data = await getGalleryThumbnailsFromDatabase();
 		return {
 			props: {
-				galleryItems: data.data.map((item: any) => {
-					const { id, attributes } = item; // keep id
-					const { title, caption, date, coverImage } = attributes; // keep all but coverImage
-					const { url, width, height } = coverImage.data.attributes.formats.small;
-
-					const image: CoverImage = {
-						id,
-						title,
-						caption,
-						alt: caption,
-						date,
-						url,
-						width,
-						height
-					};
-					return {
-						image
-					};
-				})
+				galleryItems: data
 			}
 		};
 	} catch (e) {
 		throw new Error('Failed to fetch gallery data');
 	}
-}
+};
 
-const getGalleryThumbnailsFromDatabase = async () => {
-	const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
-	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items?populate=*`;
-
-	const response = await fetch(API_URL, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${BEARER_TOKEN}`
-		}
-	});
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch gallery data: ${response.statusText}`);
-	}
-
-	const data = await response.json();
-	return data;
+export const load: LayoutServerLoad = async () => {
+	return {
+		items: await fetchGalleryImages()
+	};
 };
