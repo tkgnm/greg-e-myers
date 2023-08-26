@@ -13,11 +13,12 @@
 
 <slot />
 
-<aside>
-	<h2>More posts</h2>
-	<ul>
-		{#each data.posts as post}
-			<div>{post.alt}</div>
-		{/each}
-	</ul>
-</aside>
+<h2>Gallery</h2>
+{#each data.items as item}
+	<div>
+		<a href="/gallery/{item.id}">
+			<img src={item.url} alt={item.alt} width={item.width} height={item.height} /><br />
+			<caption>{item.caption}</caption>
+		</a>
+	</div>
+{/each}
