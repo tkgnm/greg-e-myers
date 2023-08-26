@@ -8,12 +8,6 @@ export const config = {
 	}
 };
 
-export const load: LayoutServerLoad = async () => {
-	return {
-		items: await fetchGalleryImages()
-	};
-};
-
 const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
@@ -54,4 +48,10 @@ const getImageData = async () => {
 	} catch (e) {
 		throw new Error('Failed to fetch gallery data');
 	}
+};
+
+export const load: LayoutServerLoad = async () => {
+	return {
+		items: await fetchGalleryImages()
+	};
 };
