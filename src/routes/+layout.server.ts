@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import type { GalleryImage } from '../types';
+import type { CoverImage } from '../types';
 
 export const config = {
 	isr: {
@@ -7,14 +7,13 @@ export const config = {
 	}
 };
 
-export const prerender = true;
 export const load: LayoutServerLoad = async () => {
 	return {
 		items: await fetchGalleryImages()
 	};
 };
 
-async function fetchGalleryImages(): Promise<GalleryImage[]> {
+async function fetchGalleryImages(): Promise<CoverImage[]> {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
 }
@@ -29,7 +28,7 @@ async function getImageData() {
 					const { title, caption, date, coverImage } = attributes; // keep all but coverImage
 					const { url, width, height } = coverImage.data.attributes.formats.small;
 
-					const image: GalleryImage = {
+					const image: CoverImage = {
 						id,
 						title,
 						caption,
