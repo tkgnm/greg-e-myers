@@ -3,7 +3,7 @@ import type { GalleryImage } from '../types';
 
 export const config = {
 	isr: {
-		expiration: 60 * 5 // 5 minutes
+		expiration: 60 * 10 // 10 minutes
 	}
 };
 export const load: LayoutServerLoad = async () => {
