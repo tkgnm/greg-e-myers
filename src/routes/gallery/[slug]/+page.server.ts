@@ -2,11 +2,11 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { EntryGenerator } from './$types';
 import type { ArtworkImage, GalleryItem } from '../../../types';
-
-const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
+import { fetchFromApi } from '$lib/server/api';
 
 export const entries: EntryGenerator = async () => {
 	const API_URL = 'https://gregemyers-api-fly.fly.dev/api/gallery-items';
+	const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 
 	const response = await fetch(API_URL, {
 		method: 'GET',
@@ -26,39 +26,18 @@ export const entries: EntryGenerator = async () => {
 
 const getGalleryItemFromDatabase = async (id: string): Promise<GalleryItem> => {
 	const API_URL = `https://gregemyers-api-fly.fly.dev/api/gallery-items/${id}?populate=*`;
+	const data = await fetchFromApi(API_URL);
 
-	const response = await fetch(API_URL, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${BEARER_TOKEN}`
-		}
-	});
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch gallery data: ${response.statusText}`);
-	}
-
-	const data = await response.json();
 	const { title, caption, description, date, artworks } = data.data.attributes;
 	const artworkIDs = artworks.data.map((artwork: any) => artwork.id);
+
 	return { title, caption, description, date, artworkIDs };
 };
 
 const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => {
 	const API_URL = `https://gregemyers-api-fly.fly.dev/api/artworks/${artworkID}?populate=*`;
+	const data = await fetchFromApi(API_URL);
 
-	const response = await fetch(API_URL, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${BEARER_TOKEN}`
-		}
-	});
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch artwork image data: ${response.statusText}`);
-	}
-
-	const data = await response.json();
 	const { attributes } = data.data;
 	const { title, technicalDetail, hideCaption, date, image } = attributes;
 	const { alternativeText, caption, formats } = image.data.attributes;
@@ -74,6 +53,7 @@ const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => 
 		width,
 		height
 	};
+
 	return artworkImage;
 };
 
