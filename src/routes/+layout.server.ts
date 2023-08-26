@@ -7,8 +7,6 @@ export const config = {
 	}
 };
 
-export const prerender = true;
-
 export const load: LayoutServerLoad = async () => {
 	return {
 		items: await fetchGalleryImages()
