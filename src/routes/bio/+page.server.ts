@@ -2,6 +2,12 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
+export const config = {
+	isr: {
+		expiration: 60
+	}
+};
+
 const getBioFromDatabase = async () => {
 	const data = await fetchFromApi(API_ROUTES.bio);
 	return data.data.attributes.text;
