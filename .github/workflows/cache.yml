@@ -1,9 +1,10 @@
-name: Hit URLs with Curl
+name: Preload cache
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   curl_urls:
@@ -13,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Wait for 2 minutes
+      - name: Wait for 30 seconds
         run: |
           sleep 30s
 
