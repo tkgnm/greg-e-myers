@@ -9,7 +9,7 @@
 	}
 </script>
 
-<h1>{@html data.title}</h1>
+<h2>{@html data.title}</h2>
 
 <!-- this should be changed to body -->
 {#if data.description !== null}
@@ -32,7 +32,6 @@
 	h1 {
 		font-size: 24px;
 		text-decoration: underline;
-		margin: 0;
 	}
 	.artwork-gallery {
 		max-width: 600px; /* Adjust this value as needed */

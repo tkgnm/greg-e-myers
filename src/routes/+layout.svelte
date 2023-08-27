@@ -19,7 +19,9 @@
 		</nav>
 	</header>
 
-	<slot />
+	<main>
+		<slot />
+	</main>
 
 	<hr class="divider" />
 
