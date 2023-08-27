@@ -1,21 +1,26 @@
 #!/bin/bash
 
-urls=(
-  "greg-e-myers.vercel.app"
-  "greg-e-myers.vercel.app/bio"
-  "greg-e-myers.vercel.app/contact"
-  "greg-e-myers.vercel.app/gallery/1"
-  "greg-e-myers.vercel.app/gallery/2"
-  "greg-e-myers.vercel.app/gallery/4"
-  "greg-e-myers.vercel.app/gallery/5"
-  "greg-e-myers.vercel.app/gallery/6"
-  "greg-e-myers.vercel.app/gallery/7"
-  "greg-e-myers.vercel.app/gallery/8"
+# Define the common base URL
+base_url="https://greg-e-myers.vercel.app"
+
+# Specify the paths for the URLs
+paths=(
+  ""
+  "/bio"
+  "/contact"
+  "/gallery/1"
+  "/gallery/2"
+  "/gallery/4"
+  "/gallery/5"
+  "/gallery/6"
+  "/gallery/7"
+  "/gallery/8"
 )
 
-for url in "${urls[@]}"; do
-  echo "Preloading URL: $url"
-  response_time=$(curl -w "Time: %{time_total}\n" "$url")
-  echo "$response_time"
-  sleep 7s  # Add a delay between requests, adjust as needed
+for path in "${paths[@]}"; do
+  url="$base_url$path"
+  echo "Requesting URL: $url at $(date +"%Y-%m-%d %H:%M:%S")"
+  response=$(curl -w "\nTime: %{time_total}\nStatus Code: %{http_code}" "$url")
+  echo -e "$response\n---------------------------------------"
 done
+
