@@ -14,8 +14,8 @@ urls=(
 )
 
 for url in "${urls[@]}"; do
-  echo "Hitting URL: $url"
-  curl "$url"  # -s flag is used to silence curl's progress output
-  echo "---------------------------------------"
+  echo "Preloading URL: $url"
+  response_time=$(curl -w "Time: %{time_total}\n" "$url")
+  echo "$response_time"
+  sleep 7s  # Add a delay between requests, adjust as needed
 done
-
