@@ -2,12 +2,6 @@ import type { LayoutServerLoad } from './$types';
 import type { CoverImage } from '../types';
 import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
-export const config = {
-	isr: {
-		expiration: 60
-	}
-};
-
 const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
