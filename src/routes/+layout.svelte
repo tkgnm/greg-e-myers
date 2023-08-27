@@ -9,6 +9,8 @@
 		<img
 			src="https://gregemyers-s3-images.s3.eu-west-2.amazonaws.com/banner_494d2bb9ae.jpeg"
 			alt="Banner"
+			width="500"
+			height="375"
 		/>
 
 		<nav class="nav-links">
