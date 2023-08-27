@@ -30,7 +30,7 @@ sleep 10s
 for path in "${paths[@]:1}"; do
   url="$base_url$path"
   echo "Requesting URL: $url at $(date +"%Y-%m-%d %H:%M:%S")"
-  response=$(curl -w "\nTime: %{time_total}\nStatus Code: %{http_code}" "$url")
+  response=$(curl -s -w "\nTime: %{time_total}\nStatus Code: %{http_code}" "$url")
   echo -e "$response\n---------------------------------------"
   sleep 1s
 done
