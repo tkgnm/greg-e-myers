@@ -1,0 +1,14 @@
+{
+    "headers": [
+     
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Vercel-CDN-Cache-Control",
+            "value": "stale-while-revalidate"
+          }
+        ]
+      }
+    ]
+  }
