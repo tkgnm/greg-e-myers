@@ -4,6 +4,12 @@ import type { EntryGenerator } from './$types';
 import type { ArtworkImage, GalleryItem } from '../../../types';
 import { fetchFromApi, API_ROUTES } from '$lib/server/api';
 
+export const config = {
+	isr: {
+		expiration: 60
+	}
+};
+
 export const entries: EntryGenerator = async () => {
 	try {
 		const data = await fetchFromApi(API_ROUTES.galleryItems);
