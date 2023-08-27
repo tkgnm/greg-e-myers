@@ -4,4 +4,4 @@
 	export let data: PageData;
 </script>
 
-<p>{@html data.props.bio}</p>
+{@html data.props.bio}

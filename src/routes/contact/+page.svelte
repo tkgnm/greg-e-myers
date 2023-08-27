@@ -15,27 +15,25 @@
 	}
 </script>
 
-<main>
-	<h2>Contact</h2>
-	<p>Please enquire for sales, commissions, and gallery shows.</p>
+<h2>Contact</h2>
+<p>Please enquire for sales, commissions, and gallery shows.</p>
 
-	Instagram:<a href="https://www.instagram.com/gregemyers" target="_blank">@gregemyers</a>
+Instagram:<a href="https://www.instagram.com/gregemyers" target="_blank">@gregemyers</a>
 
-	<div class="email-container">
-		<div class="email-button-container">
-			<p class="email">{emailAddress}</p>
-			{#if !copiedMessage}
-				<button class="copy-button" on:click={copyToClipboard}>Copy Email</button>
-			{/if}
-			{#if copiedMessage === 'Copied to clipboard'}
-				<p class="copied-message">Email Copied</p>
-			{/if}
-		</div>
+<div class="email-container">
+	<div class="email-button-container">
+		<p class="email">{emailAddress}</p>
+		{#if !copiedMessage}
+			<button class="copy-button" on:click={copyToClipboard}>Copy Email</button>
+		{/if}
 		{#if copiedMessage === 'Copied to clipboard'}
-			<div class="background-fade" on:transitionend={() => (copiedMessage = '')} />
+			<p class="copied-message">Email Copied</p>
 		{/if}
 	</div>
-</main>
+	{#if copiedMessage === 'Copied to clipboard'}
+		<div class="background-fade" on:transitionend={() => (copiedMessage = '')} />
+	{/if}
+</div>
 
 <style>
 	.email-container {
