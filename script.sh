@@ -23,14 +23,14 @@ echo "Requesting URL: $home_url at $(date +"%Y-%m-%d %H:%M:%S")"
 response=$(curl -w "\nTime: %{time_total}\nStatus Code: %{http_code}" "$home_url")
 echo -e "$response\n---------------------------------------"
 
-# Wait for 10 seconds
+# Wait for 10 seconds for strapi to boot up
 sleep 10s
 
 # Hit the other pages with a 1-second delay
 for path in "${paths[@]:1}"; do
   url="$base_url$path"
   echo "Requesting URL: $url at $(date +"%Y-%m-%d %H:%M:%S")"
-  response=$(curl -s -w "\nTime: %{time_total}\nStatus Code: %{http_code}" "$url")
-  echo -e "$response\n---------------------------------------"
+  headers=$(curl -s -I "$url")
+  echo -e "$headers\n---------------------------------------"
   sleep 1s
 done

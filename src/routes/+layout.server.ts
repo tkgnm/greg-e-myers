@@ -8,8 +8,6 @@ export const config = {
 	}
 };
 
-export const prerender = true;
-
 const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
