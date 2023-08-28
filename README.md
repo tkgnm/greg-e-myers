@@ -16,6 +16,4 @@ This website is deployed on Vercel.
 
 ## Rerendering
 
-This website is prerendered. Once a change has been deployed to the CMS a rerender can be forced by hitting this URL https://api.vercel.com/v1/integrations/deploy/prj_JCJu5YeT49NZX30SQpThV14X6FzX/QZWcd0wJyq
-
-
+This website is prerendered. There is a deploy hook on vercel that is triggered whenever a change in the [CMS](https://gregemyers-api-fly.fly.dev/admin/auth/login) happens. 
