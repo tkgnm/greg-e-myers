@@ -1,6 +1,6 @@
 # greg-e-myers
 
-This website will soon supercede [gregemyers](https://github.com/tkgnm/gregemyers). The backend that feeds this site is a Strapi application, and the source code can be found at [this link](https://github.com/tkgnm/gregemyers-api). 
+This website will soon supercede [gregemyers](https://github.com/tkgnm/gregemyers). The backend that feeds this site is a Strapi application, the source code of which can be found at [this link](https://github.com/tkgnm/gregemyers-api). 
 
 ## Developing
 
