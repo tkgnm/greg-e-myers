@@ -7,6 +7,9 @@ export const config = {
 		expiration: 60
 	}
 };
+
+export const prerender = true;
+
 const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
 	return data.props.galleryItems.map((item: any) => item.image);
