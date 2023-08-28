@@ -16,9 +16,14 @@ jobs:
 
       - name: Wait for 30 seconds
         run: |
-          sleep 120s
+          sleep 30s
 
       - name: Execute curl script
+        run: |
+          chmod +x script.sh 
+          ./script.sh
+
+      - name: Execute curl script again
         run: |
           chmod +x script.sh 
           ./script.sh
