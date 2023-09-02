@@ -79,11 +79,12 @@
 		max-width: 1200px;
 		width: 100%;
 		margin: 0 auto; /* Center the grid horizontally */
-		justify-items: center; /* Center the items horizontally */
 		padding-top: 20px;
+		justify-items: center;
 	}
 
 	.gallery-item {
+		max-width: 200px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
