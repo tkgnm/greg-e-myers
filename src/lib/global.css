@@ -9,10 +9,10 @@ a:visited {
 }
 
 :root {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Helvetica;
     font-size: 16px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 350;
     color: black;
     background-color: #ffffff;
 }

@@ -42,6 +42,7 @@
 			</div>
 		{/each}
 	</div>
+	<footer>All content on this site ©️ Greg E Myers</footer>
 </div>
 
 <style>
@@ -61,7 +62,7 @@
 	}
 
 	.centered-header img {
-		max-width: 100%;
+		max-width: 90%;
 		height: auto;
 	}
 
