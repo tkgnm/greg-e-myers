@@ -116,7 +116,7 @@
 	}
 
 	.item-caption {
-		color: gray;
+		color: darkslategray;
 		font-size: 0.8rem;
 	}
 
