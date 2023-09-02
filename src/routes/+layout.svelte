@@ -57,13 +57,12 @@
 	}
 
 	.centered-header {
-		max-width: 1200px; /* Set a maximum width for the header content */
-		width: 100%;
 		padding: 20px;
 	}
 
 	.centered-header img {
 		max-width: 100%;
+		height: auto;
 	}
 
 	.nav-links {
