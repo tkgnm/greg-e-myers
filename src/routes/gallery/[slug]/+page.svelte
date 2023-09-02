@@ -9,6 +9,8 @@
 	}
 </script>
 
+<title>Artwork featured in {data.title}</title>
+
 <h2>{@html data.title}</h2>
 
 <!-- this should be changed to body -->

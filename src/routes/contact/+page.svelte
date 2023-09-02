@@ -15,6 +15,7 @@
 	}
 </script>
 
+<title>Contact information</title>
 <h2>Contact</h2>
 <p>Please enquire for sales, commissions, and gallery shows.</p>
 
