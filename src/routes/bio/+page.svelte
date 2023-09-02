@@ -4,4 +4,5 @@
 	export let data: PageData;
 </script>
 
+<title>Biography and CV</title>
 {@html data.props.bio}

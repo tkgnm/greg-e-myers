@@ -9,6 +9,8 @@
 	}
 </script>
 
+<title>Artwork featured in {data.title}</title>
+
 <h2>{@html data.title}</h2>
 
 <!-- this should be changed to body -->
@@ -29,8 +31,7 @@
 </div>
 
 <style>
-	h1 {
-		font-size: 24px;
+	h2 {
 		text-decoration: underline;
 	}
 	.artwork-gallery {

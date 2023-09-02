@@ -6,7 +6,14 @@ export const prerender = true;
 
 const fetchGalleryImages = async (): Promise<CoverImage[]> => {
 	const data = await getImageData();
-	return data.props.galleryItems.map((item: any) => item.image);
+
+	const sortedItems = data.props.galleryItems.sort((a: any, b: any) => {
+		const dateA = new Date(a.image.date);
+		const dateB = new Date(b.image.date);
+		return dateA.getTime() + dateB.getTime();
+	});
+
+	return sortedItems.map((item: any) => item.image);
 };
 
 const getGalleryThumbnailsFromDatabase = async () => {
