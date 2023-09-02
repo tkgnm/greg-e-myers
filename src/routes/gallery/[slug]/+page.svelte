@@ -29,8 +29,7 @@
 </div>
 
 <style>
-	h1 {
-		font-size: 24px;
+	h2 {
 		text-decoration: underline;
 	}
 	.artwork-gallery {
