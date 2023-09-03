@@ -15,6 +15,26 @@ export const entries: EntryGenerator = async () => {
 	}
 };
 
+export const load: PageServerLoad = async ({ params }) => {
+	try {
+		const galleryItem = await getGalleryItemFromDatabase(params.slug);
+		const { artworkIDs } = galleryItem;
+		const artworkImages: Array<ArtworkImage> = await Promise.all(
+			artworkIDs.map((artworkID) => getArtworkImageById(artworkID))
+		);
+
+		return {
+			title: galleryItem.title,
+			caption: galleryItem.caption,
+			description: galleryItem.description,
+			date: galleryItem.date,
+			artworkImages: artworkImages
+		};
+	} catch (e) {
+		throw error(404, 'Not found');
+	}
+};
+
 const getGalleryItemFromDatabase = async (id: string): Promise<GalleryItem> => {
 	const API_URL = API_ROUTES.galleryItem(id);
 	const data = await fetchFromApi(API_URL);
@@ -47,24 +67,4 @@ const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => 
 	};
 
 	return artworkImage;
-};
-
-export const load: PageServerLoad = async ({ params }) => {
-	try {
-		const galleryItem = await getGalleryItemFromDatabase(params.slug);
-		const { artworkIDs } = galleryItem;
-		const artworkImages: Array<ArtworkImage> = await Promise.all(
-			artworkIDs.map((artworkID) => getArtworkImageById(artworkID))
-		);
-
-		return {
-			title: galleryItem.title,
-			caption: galleryItem.caption,
-			description: galleryItem.description,
-			date: galleryItem.date,
-			artworkImages: artworkImages
-		};
-	} catch (e) {
-		throw error(404, 'Not found');
-	}
 };
