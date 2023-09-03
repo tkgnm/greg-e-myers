@@ -7,7 +7,7 @@
 <div class="page-container">
 	<header class="centered-header">
 		<img
-			src="https://gregemyers-s3-images.s3.eu-west-2.amazonaws.com/banner_494d2bb9ae.jpeg"
+			src="https://d2tzn7fryno3g4.cloudfront.net/banner_494d2bb9ae.jpeg"
 			alt="Banner"
 			width="500"
 			height="375"

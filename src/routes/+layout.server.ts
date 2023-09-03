@@ -1,6 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import type { CoverImage } from '../types';
-import { fetchFromApi, API_ROUTES } from '$lib/server/api';
+import { fetchFromApi, API_ROUTES, convertToCloudfrontUrl } from '$lib/server/api';
 
 export const prerender = true;
 
@@ -23,14 +23,14 @@ const getGalleryThumbnailsFromDatabase = async () => {
 		const { id, attributes } = item;
 		const { title, caption, date, coverImage } = attributes;
 		const { url, width, height } = coverImage.data.attributes.formats.small;
-
+		const cloudFronturl = convertToCloudfrontUrl(url);
 		const image: CoverImage = {
 			id,
 			title,
 			caption,
 			alt: caption,
 			date,
-			url,
+			url: cloudFronturl,
 			width,
 			height
 		};
