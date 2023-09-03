@@ -32,7 +32,7 @@ const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => 
 	const { attributes } = data.data;
 	const { title, technicalDetail, hideCaption, date, image } = attributes;
 	const { alternativeText, caption, formats } = image.data.attributes;
-	const { url, width, height } = formats.large;
+	const { url, width, height } = formats.medium;
 	const cloudFrontURL = convertToCloudfrontUrl(url);
 	const artworkImage: ArtworkImage = {
 		title,
