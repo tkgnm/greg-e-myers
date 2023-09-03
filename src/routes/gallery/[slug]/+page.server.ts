@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { EntryGenerator } from './$types';
 import type { ArtworkImage, GalleryItem } from '../../../types';
-import { fetchFromApi, API_ROUTES } from '$lib/server/api';
+import { fetchFromApi, API_ROUTES, convertToCloudfrontUrl } from '$lib/server/api';
 
 export const entries: EntryGenerator = async () => {
 	try {
@@ -33,6 +33,7 @@ const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => 
 	const { title, technicalDetail, hideCaption, date, image } = attributes;
 	const { alternativeText, caption, formats } = image.data.attributes;
 	const { url, width, height } = formats.large;
+	const cloudFrontURL = convertToCloudfrontUrl(url);
 	const artworkImage: ArtworkImage = {
 		title,
 		technicalDetail,
@@ -40,7 +41,7 @@ const getArtworkImageById = async (artworkID: number): Promise<ArtworkImage> => 
 		hideCaption,
 		alternativeText,
 		date,
-		url,
+		url: cloudFrontURL,
 		width,
 		height
 	};

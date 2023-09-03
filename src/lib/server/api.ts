@@ -1,5 +1,3 @@
-// Define a common function to make API requests
-
 export const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 
 export const fetchFromApi = async (url: string) => {
@@ -25,4 +23,11 @@ export const API_ROUTES = {
 	galleryItems: `${API_BASE_URL}/gallery-items`,
 	bio: `${API_BASE_URL}/bio`,
 	galleryThumbnails: `${API_BASE_URL}/gallery-items?populate=*`
+};
+
+export const CLOUDFRONT_BASE_URL = 'https://d2tzn7fryno3g4.cloudfront.net';
+
+export const convertToCloudfrontUrl = (url: string) => {
+	const pathname = new URL(url).pathname;
+	return `${CLOUDFRONT_BASE_URL}${pathname}`;
 };
