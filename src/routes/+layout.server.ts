@@ -28,7 +28,6 @@ const getCoverImages = async (): Promise<CoverImage[]> => {
 		return data.data.map((item: any) => {
 			const { id, attributes } = item;
 			const { title, caption, date, coverImage } = attributes;
-			console.log(title, date);
 			const { url, width, height } = coverImage.data.attributes.formats.small;
 			const cloudFronturl = convertToCloudfrontUrl(url);
 			const image: CoverImage = {

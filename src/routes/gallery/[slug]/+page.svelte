@@ -9,8 +9,8 @@
 	}
 </script>
 
-<title>Artwork featured in {data.title}</title>
-
+<title>Greg E Myers - {data.title}</title>
+<meta name="description" content="Works featured in ${data.title} by Greg E Myers." />
 <h2>{@html data.title}</h2>
 
 <!-- this should be changed to body -->

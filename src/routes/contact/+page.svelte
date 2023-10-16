@@ -15,7 +15,11 @@
 	}
 </script>
 
-<title>Contact information</title>
+<title>Greg E Myers - Contact</title>
+<meta
+	name="description"
+	content="Contact information for visual artist Greg E Myers. Available for sales, commissions and gallery shows."
+/>
 <h2>Contact</h2>
 <p>Please enquire for sales, commissions, and gallery shows.</p>
 
