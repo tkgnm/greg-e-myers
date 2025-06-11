@@ -50,8 +50,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center; /* Center the content horizontally */
-		text-align: center;
-		max-width: 1024px; /* Adjust to your desired maximum width */
+		//text-align: center;
+		max-width: 75ch; /* Adjust to your desired maximum width */
 		margin: 0 auto; /* Center the container horizontally */
 		padding-left: 20px; /* Add left padding */
 		padding-right: 20px; /* Add right padding */
