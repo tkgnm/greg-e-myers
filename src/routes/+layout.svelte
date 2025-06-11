@@ -50,7 +50,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center; /* Center the content horizontally */
-		//text-align: center;
+		/*text-align: center;*/
 		max-width: 75ch; /* Adjust to your desired maximum width */
 		margin: 0 auto; /* Center the container horizontally */
 		padding-left: 20px; /* Add left padding */
@@ -64,6 +64,7 @@
 	.centered-header img {
 		max-width: 90%;
 		height: auto;
+		align-items: center;
 	}
 
 	.nav-links {
