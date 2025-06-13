@@ -11,12 +11,13 @@
 			alt="Banner"
 			width="500"
 			height="375"
+			
 		/>
 
 		<nav class="nav-links">
 			<a href="/">Home</a>
 			<a href="/bio">Bio</a>
-			<a href="https://www.instagram.com/gregemyers/" target="_blank">Instagram ⬈</a>
+			<a href="https://www.instagram.com/gregemyers/" target="_blank">Instagram⬈</a>
 			<a href="/contact">Contact</a>
 		</nav>
 	</header>
@@ -50,20 +51,25 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center; /* Center the content horizontally */
-		//text-align: center;
+		/*text-align: center;*/
 		max-width: 75ch; /* Adjust to your desired maximum width */
-		margin: 0 auto; /* Center the container horizontally */
+		margin: auto; /* Center the container horizontally */
 		padding-left: 20px; /* Add left padding */
 		padding-right: 20px; /* Add right padding */
 	}
 
 	.centered-header {
 		padding: 20px;
+
 	}
 
 	.centered-header img {
-		max-width: 90%;
-		height: auto;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 80%;
+	height: 80%;
+		
 	}
 
 	.nav-links {
@@ -79,7 +85,8 @@
 		grid-gap: 20px; /* Adjust the gap between items */
 		max-width: 1200px;
 		width: 100%;
-		margin: 0 auto; /* Center the grid horizontally */
+		margin-left: auto;
+		margin-right: auto; /* Center the grid horizontally */
 		padding-top: 20px;
 		justify-items: center;
 	}
