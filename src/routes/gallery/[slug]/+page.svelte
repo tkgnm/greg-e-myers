@@ -34,7 +34,6 @@
 	h2 {
 		text-decoration: underline;
 		text-align: center;
-
 	}
 	.artwork-gallery {
 		max-width: 600px; /* Adjust this value as needed */
