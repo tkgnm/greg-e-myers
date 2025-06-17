@@ -20,7 +20,7 @@
 	name="description"
 	content="Contact information for visual artist Greg E Myers. Available for sales, commissions and gallery shows."
 />
-<h2>Contact</h2>
+<h2 style="text-align: center;">Contact</h2>
 <p>Please enquire for sales, commissions, and gallery shows.</p>
 
 <div class = "email-container">
