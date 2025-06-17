@@ -51,7 +51,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center; /* Center the content horizontally */
-		/*text-align: center;*/
 		max-width: 75ch; /* Adjust to your desired maximum width */
 		margin: auto; /* Center the container horizontally */
 		padding-left: 20px; /* Add left padding */
@@ -64,11 +63,11 @@
 	}
 
 	.centered-header img {
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 80%;
-	height: 80%;
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+  		width: 80%;
+		height: 80%;
 		
 	}
 
